@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bar_navigation"
+    app:startDestination="@id/postVFragment">
+
+    <fragment
+        android:id="@+id/postVFragment"
+        android:name="com.example.retrofitapp.PostVFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_post_v" >
+        <action
+            android:id="@+id/action_postVFragment_to_postDetailsFragment"
+            app:destination="@id/postDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postHFragment"
+        android:name="com.example.retrofitapp.PostHFragment"
+        android:label="Post Horizontal"
+        tools:layout="@layout/fragment_post_h" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.retrofitapp.SettingsFragment"
+        android:label="Settings Panel"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/postDetailsFragment"
+        android:name="com.example.retrofitapp.PostDetailsFragment"
+        android:label="fragment_post_details"
+        tools:layout="@layout/fragment_post_details" />
+</navigation>

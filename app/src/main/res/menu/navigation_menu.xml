@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:id="@+id/postVFragment"
+        android:icon="@drawable/ic_home"
+        />
+    <item android:title="PostH"
+        android:id="@+id/postHFragment"
+        android:icon="@drawable/ic_post"
+        />
+    <item android:title="Settings"
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_setting"
+        />
+</menu>
