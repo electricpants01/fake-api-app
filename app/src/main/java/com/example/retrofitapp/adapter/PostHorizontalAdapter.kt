@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.retrofitapp.Interfaces.IPost
 import com.example.retrofitapp.R
 import com.example.retrofitapp.databinding.PostHItemBinding
 import com.example.retrofitapp.model.Post
 
-class PostHorizontalAdapter(val posts: List<Post.PostItem>): RecyclerView.Adapter<PostHorizontalAdapter.PostHorizontalHolder>() {
+class PostHorizontalAdapter(val posts: List<Post.PostItem>, val postListener: IPost): RecyclerView.Adapter<PostHorizontalAdapter.PostHorizontalHolder>() {
     class PostHorizontalHolder(view: View): RecyclerView.ViewHolder(view) {
         val postHItemBinding = PostHItemBinding.bind(view)
         fun render(postItem: Post.PostItem){
@@ -25,6 +26,10 @@ class PostHorizontalAdapter(val posts: List<Post.PostItem>): RecyclerView.Adapte
     override fun onBindViewHolder(holder: PostHorizontalAdapter.PostHorizontalHolder, position: Int) {
         val post = posts[position]
         holder.render(post)
+        val cardView = holder.postHItemBinding.cvPostHorizontal
+        cardView.setOnClickListener {
+            post.id?.let { it1 -> postListener.didSelectPost(it1) }
+        }
     }
 
     override fun getItemCount(): Int = posts.size

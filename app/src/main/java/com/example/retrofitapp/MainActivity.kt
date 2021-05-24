@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val navBar = binding.mainNavBar
-        val navController = findNavController(R.id.fragment)
+        val navController = findNavController(R.id.fragment_main_navbar)
         navBar.setupWithNavController(navController)
-        val appBarConf = AppBarConfiguration(setOf(R.id.postVFragment, R.id.postHFragment, R.id.settingsFragment))
-        setupActionBarWithNavController(navController, appBarConf)
+//        val appBarConf = AppBarConfiguration(setOf(R.id.postVFragment, R.id.postHFragment, R.id.settingsFragment))
+//        setupActionBarWithNavController(navController, appBarConf)
     }
 }

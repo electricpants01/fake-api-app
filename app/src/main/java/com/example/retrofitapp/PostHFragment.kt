@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.retrofitapp.Interfaces.IPost
 import com.example.retrofitapp.ServiceApi.APIService
@@ -26,7 +27,9 @@ class PostHFragment : Fragment(), IPost {
     lateinit var postHorizontalAdapter: PostHorizontalAdapter
     lateinit var postCommentAdapter: PostCommentAdapter
     var myPosts = mutableListOf<Post.PostItem>()
-    var myComments = mutableListOf<Comment.CommentItem>()
+    var myComments = mutableListOf<Comment.CommentItem>( Comment.CommentItem("body cuerpo",
+            "chris@gmail.com",12,"christian",100
+    ))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,12 +48,12 @@ class PostHFragment : Fragment(), IPost {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecycler()
-       // initCommentsRecycler()
+        initCommentsRecycler()
         getAllPosts()
     }
 
     fun initRecycler() {
-        postHorizontalAdapter = PostHorizontalAdapter(myPosts)
+        postHorizontalAdapter = PostHorizontalAdapter(myPosts,this)
         val recycler = fragmentPostHBinding.rvPostHorizontal
         // asi es como seteamos horizontalmente
         recycler.layoutManager = LinearLayoutManager(view?.context,LinearLayoutManager.HORIZONTAL,false)
@@ -61,7 +64,7 @@ class PostHFragment : Fragment(), IPost {
         postCommentAdapter = PostCommentAdapter(myComments)
         val commentsRecycler = fragmentPostHBinding.rvHorizontalComments
         commentsRecycler.layoutManager = LinearLayoutManager(view?.context)
-        commentsRecycler.adapter = postHorizontalAdapter
+        commentsRecycler.adapter = postCommentAdapter
     }
 
 
@@ -85,7 +88,7 @@ class PostHFragment : Fragment(), IPost {
         }
     }
     override fun didSelectPost(postId: Int) {
-        Log.d("chris","si se hizo el did select")
+        getCommentsById(postId)
     }
 
     fun getCommentsById(postId: Int){
