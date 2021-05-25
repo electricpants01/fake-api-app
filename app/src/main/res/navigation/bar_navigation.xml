@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/postVFragment"
-        android:name="com.example.retrofitapp.PostVFragment"
+        android:name="com.example.retrofitapp.view.PostVFragment"
         android:label="Home"
         tools:layout="@layout/fragment_post_v" >
         <action
@@ -16,17 +16,17 @@
     </fragment>
     <fragment
         android:id="@+id/postHFragment"
-        android:name="com.example.retrofitapp.PostHFragment"
+        android:name="com.example.retrofitapp.view.PostHFragment"
         android:label="Post Horizontal"
         tools:layout="@layout/fragment_post_h" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.retrofitapp.SettingsFragment"
+        android:name="com.example.retrofitapp.view.SettingsFragment"
         android:label="Settings Panel"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/postDetailsFragment"
-        android:name="com.example.retrofitapp.PostDetailsFragment"
+        android:name="com.example.retrofitapp.view.PostDetailsFragment"
         android:label="fragment_post_details"
         tools:layout="@layout/fragment_post_details" />
 </navigation>

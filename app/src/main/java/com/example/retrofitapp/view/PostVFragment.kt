@@ -1,6 +1,5 @@
-package com.example.retrofitapp
+package com.example.retrofitapp.view
 
-import android.app.Service
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofitapp.Interfaces.IPost
+import com.example.retrofitapp.R
 import com.example.retrofitapp.ServiceApi.APIService
 import com.example.retrofitapp.ServiceApi.ServiceGenerator
 import com.example.retrofitapp.adapter.PostAdapter
@@ -20,8 +19,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class PostVFragment : Fragment(), IPost {
 
